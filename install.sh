@@ -11,7 +11,7 @@ DNS_ADBLOCKING="${6:-${DNS_ADBLOCKING:-false}}"
 SSH_TUNNELING="${7:-${SSH_TUNNELING:-false}}"
 ENDPOINT="${8:-${ENDPOINT:-localhost}}"
 USERS="${9:-${USERS:-user1}}"
-REPO_SLUG="${10:-${REPO_SLUG:-trailofbits/algo}}"
+REPO_SLUG="${10:-${REPO_SLUG:-alexey-saveliev/algo}}"
 REPO_BRANCH="${11:-${REPO_BRANCH:-master}}"
 EXTRA_VARS="${12:-${EXTRA_VARS:-placeholder=null}}"
 ANSIBLE_EXTRA_ARGS="${13:-${ANSIBLE_EXTRA_ARGS}}"
@@ -22,6 +22,7 @@ installRequirements() {
   export DEBIAN_FRONTEND=noninteractive
   apt-get update
   apt-get install \
+    git \
     python3-virtualenv \
     jq -y
 }
