@@ -61,8 +61,6 @@ COMMIT
 # Accept packets using the encapsulation protocol
 -A INPUT -p esp -j ACCEPT
 -A INPUT -p ah -j ACCEPT
-# rate limit ICMP traffic per source
--A INPUT -p icmp --icmp-type echo-request -m hashlimit --hashlimit-upto 5/s --hashlimit-mode srcip --hashlimit-srcmask 32 --hashlimit-name icmp-echo-drop -j ACCEPT
 # Accept IPSEC/WireGuard traffic to ports {{ subnets|join(',') }}
 -A INPUT -p udp -m multiport --dports {{ ports|join(',') }} -j ACCEPT
 # Allow new traffic to port {{ ansible_ssh_port }} (SSH)
